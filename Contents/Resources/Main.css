@@ -1,7 +1,7 @@
 @import url('fonts.css');
 
 body {
-  background-color: #E9EDEF;
+  background-color: rgb(233, 237, 239);
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
   word-wrap: break-word !important;
@@ -13,42 +13,70 @@ a {
   color: rgb(114, 123, 250);
 }
 
-div#Chat > span.message {
-  background-color: white;
-  border-radius: .3em;
-  clear: both;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.07);
-  border-left-width: .4em;
-  border-left-style: solid;
+#Chat {
+  height: 100%;
 }
 
-span.message.consecutive {
+.chat.message {
+  background-color: white;
+  border-left-style: solid;
+  border-left-width: .4em;
+  border-radius: .3em;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+  clear: both;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.content.mention .timestamp::after {
+  content: '\2605';
+}
+
+.chat.message.consecutive {
   margin-top: .1em;
 }
 
-span.message div.timestamp {
-  color: rgba(0,0,0,0.4);
+.chat.message .timestamp {
+  color: rgba(0, 0, 0, 0.4);
   float: right;
 }
 
-div.username {
+.username {
   font-weight: bold;
   margin-bottom: .5em;
 }
 
-span.purple,
-span.status {
-  color: rgba(0,0,0,0.4);
+.purple,
+.status,
+.event {
+  color: rgba(0, 0, 0, 0.4);
   display: block;
+  line-height: 1.5em;
   margin: 0 auto 1em;
-  text-align: center;
   max-width: 50em;
+  text-align: center;
 }
 
-span.purple div,
-span.status div {
-  display: inline;
+.purple .timestamp,
+.status .timestamp,
+.event .timestamp {
+  margin-right: .3em;
+}
+
+.firstFocus::before {
+  content: '';
+  display: block;
+  border-top: 1px dashed rgba(0, 0, 0, 0.3);
+}
+
+.chat.firstFocus::before {
+  margin: 0 0 1em;
+}
+
+.content.firstFocus::before {
+  margin: 1em 0;
+}
+
+.chat.firstFocus .content.firstFocus::before {
+  display: none;
 }

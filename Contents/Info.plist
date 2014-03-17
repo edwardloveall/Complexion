@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Complexion v0.1</string>
+	<string>Complexion v0.2</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.edwardloveall.Complexion</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>AdIM</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1</string>
+	<string>0.2</string>
 	<key>DefaultFontFamily</key>
 	<string>OpenSans</string>
 	<key>DefaultFontSize</key>
