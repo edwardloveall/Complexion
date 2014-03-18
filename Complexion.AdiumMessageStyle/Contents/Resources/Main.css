@@ -43,6 +43,10 @@ a {
   float: right;
 }
 
+.content img.emoticon {
+  vertical-align: middle;
+}
+
 .username {
   font-weight: bold;
   margin-bottom: .5em;
