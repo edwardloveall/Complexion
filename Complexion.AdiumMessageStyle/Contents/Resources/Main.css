@@ -29,8 +29,9 @@ a {
   padding: 1em .6em 1em 1em;
 }
 
-.content.mention .timestamp::after {
-  content: '\2605';
+.content.mention .timestamp::before {
+  content: '\25C9';
+  color: tomato;
 }
 
 .chat.message.consecutive {
