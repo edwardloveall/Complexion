@@ -41,6 +41,8 @@ a {
 .chat.message .timestamp {
   color: rgba(0, 0, 0, 0.4);
   float: right;
+  min-width: 3em;
+  text-align: right;
 }
 
 .content img.emoticon {
