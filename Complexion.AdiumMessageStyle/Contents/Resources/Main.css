@@ -32,6 +32,7 @@ a {
 .content.mention .timestamp::before {
   content: '\25C9';
   color: tomato;
+  padding-right: .3em;
 }
 
 .chat.message.consecutive {
