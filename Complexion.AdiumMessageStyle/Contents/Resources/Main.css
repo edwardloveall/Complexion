@@ -4,6 +4,7 @@ body {
   background-color: rgb(233, 237, 239);
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
+  margin: 0;
   word-wrap: break-word !important;
   word-break: break-word;
   text-rendering: optimizeLegibility;
@@ -14,7 +15,8 @@ a {
 }
 
 #Chat {
-  height: 100%;
+  overflow: hidden;
+  margin: 1em 1em 0;
 }
 
 .chat.message {
