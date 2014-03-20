@@ -82,7 +82,7 @@ a {
   color: rgba(0, 0, 0, 0.4);
   display: block;
   line-height: 1.5em;
-  margin: 0 auto 1em;
+  margin: 0 auto .5em;
   max-width: 50em;
   text-align: center;
 }
