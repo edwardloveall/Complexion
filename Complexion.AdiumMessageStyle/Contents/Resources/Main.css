@@ -76,6 +76,14 @@ a {
   vertical-align: middle;
 }
 
+.content .swatch {
+  display: inline-block;
+  border-radius: 2px;
+  height: 1em;
+  margin: 0 .2em -1px;
+  width: 1em;
+}
+
 .purple,
 .status,
 .event {

@@ -3,8 +3,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.12), see www.w3.org" />
   <link rel="stylesheet" href=
   "../Complexion.AdiumMessageStyle/Contents/Resources/Main.css"
   type="text/css" />
@@ -966,7 +964,7 @@
         </div>
 
         <div class="contentText">
-          I just don't get WIn 8 and this touch screen and metro
+          I just don't get WIn 8 and this touch <span class="swatch" style="background-color: #D63F3F"></span>#D63F3F screen and metro
           crap
         </div>
       </div>
@@ -1002,5 +1000,62 @@
       <span id="insert"></span>
     </div>
   </div>
+  <script>
+    String.prototype.fragment = function(start, length) {
+      var parts = [];
+      parts[0] = this.substr(0, start);
+      parts[1] = this.substr(start, length);
+      parts[2] = this.substr(start + length);
+      return parts;
+    }
+
+    function replaceSwatches(html) {
+      var parsed = createDOMElements(html);
+
+      if (parsed.className.match('irc') != null) {
+        return html;
+      }
+
+      var contentText = parsed.getElementsByClassName('contentText')[0],
+          replaced = scanForSwatches(contentText.innerHTML);
+      contentText.innerHTML = replaced;
+      return parsed.parentElement.innerHTML;
+    }
+    function createDOMElements(html) {
+      tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.firstChild;
+    }
+
+    function scanForSwatches(text) {
+      var matches = text.match(/#[a-f0-9]{6}/i);
+      if (matches != null) {
+        var start = text.indexOf(matches[0]);
+        var fragments = text.fragment(start, 7);
+        fragments[1] = wrapSpans(fragments[1]);
+        var remainder = fragments.splice(2, 1);
+        var replaced = scanForSwatches(remainder[0]);
+        var flattened = fragments.concat(replaced);
+        text = flattened.join('');
+      }
+      return text;
+    }
+
+    function wrapSpans(color) {
+      if (color != '') {
+        return '<span class="swatch" style="background-color: ' + color + ';"></span>' + color;
+      } else {
+        return color;
+      }
+    }
+
+    function appendNextMessageNoScroll(html, shouldScroll){
+      shouldScroll = shouldScroll || false;
+      // only group next messages if we're already coalescing input
+      html = replaceSwatches(html);
+      coalescedHTML.appendNext(html, shouldScroll);
+    }
+
+  </script>
 </body>
 </html>
